@@ -1,0 +1,40 @@
+{
+    "name": "WIG to BigWIG conversion", 
+    "description": "This tool will convert wiggle (WIG) files to the indexed, binary version (BigWIG) which enables faster access for larger files.", 
+    "inputs": {
+        "input_file": {
+            "description": "The input wiggle file. Note that if there are problems with the formatting, this tool will not work.", 
+            "name": "Your input wiggle file:", 
+            "required": true, 
+            "converter": "api.converters.data_resource.LocalDockerSingleDataResourceConverter",
+            "spec": {
+                "attribute_type": "DataResource", 
+                "resource_type": "WIG", 
+                "many": false
+            }
+        }, 
+        "organism": {
+            "description": "The organism (and genome version) you are working with. We need this to create the BigWIG index. Note that the versions with \"Ensembl\" do NOT have \"chr\" prefixes for the chromosomes. The UCSC versions DO include that prefix.", 
+            "name": "Reference organism:", 
+            "required": true, 
+            "converter": "api.converters.basic_attributes.StringConverter",
+            "spec": {
+                "attribute_type": "OptionString",
+                "options": ["Human(Ensembl)","Mouse(Ensembl)", "Human(UCSC)", "Mouse(UCSC)"]
+            }
+        }
+    }, 
+    "outputs": {
+        "remapped_file": {
+            "required": true,
+            "converter": "api.converters.data_resource.LocalDockerSingleDataResourceConverter",
+            "spec": {
+                "attribute_type": "DataResource", 
+                "resource_type": "BIGWIG",
+                "many": false
+            }
+        }
+    }, 
+    "mode": "local_docker",
+    "workspace_operation": true
+}
