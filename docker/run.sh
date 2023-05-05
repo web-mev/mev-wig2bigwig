@@ -25,3 +25,5 @@ esac
 
 OUTPUT="${INPUT_FILE%.*}"
 /opt/software/wigToBigWig $INPUT_FILE $CHR_SZ $OUTPUT.bw
+
+echo "{\"bw_file\": \"$OUTPUT.bw\"}" > outputs.json
