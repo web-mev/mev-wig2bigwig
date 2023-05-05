@@ -14,3 +14,5 @@ ADD mm39_chr_sizes.txt /opt/software/resources/
 ADD hg38_chr_sizes.txt /opt/software/resources/
 ADD grcm39_chr_sizes.txt /opt/software/resources/
 ADD grch38_chr_sizes.txt /opt/software/resources/
+
+RUN chmod +x /opt/software/run.sh
