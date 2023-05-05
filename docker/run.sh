@@ -25,5 +25,11 @@ esac
 
 OUTPUT="${INPUT_FILE%.*}"
 /opt/software/wigToBigWig $INPUT_FILE $CHR_SZ $OUTPUT.bw
-BN=$(dirname $INPUT_FILE)
-echo "{\"bw_file\": \"$OUTPUT.bw\"}" > $BN/outputs.json
+
+if [ $? == 0 ]
+then
+    BN=$(dirname $INPUT_FILE)
+    echo "{\"bw_file\": \"$OUTPUT.bw\"}" > $BN/outputs.json
+else
+    exit 1
+fi
