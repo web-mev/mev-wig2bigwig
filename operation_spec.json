@@ -17,7 +17,7 @@
             "description": "The organism (and genome version) you are working with. We need this to create the BigWIG index. Note that the versions with \"Ensembl\" do NOT have \"chr\" prefixes for the chromosomes. The UCSC versions DO include that prefix.", 
             "name": "Reference organism:", 
             "required": true, 
-            "converter": "api.converters.basic_attributes.StringConverter",
+            "converter": "api.converters.basic_attributes.UnrestrictedStringConverter",
             "spec": {
                 "attribute_type": "OptionString",
                 "options": ["Human(Ensembl)","Mouse(Ensembl)", "Human(UCSC)", "Mouse(UCSC)"]
